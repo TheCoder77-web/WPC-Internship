@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
+import Me from "./assets/me.png"
 
 function App() {
   const [count, setCount] = useState(0)
@@ -10,27 +11,26 @@ function App() {
   return (
     <><div>
     </div>
-      <div id="banner" class="container center">
+      <div id="banner" className="container center">
       <h1>About Me</h1>
     </div>
-    
-    <div class="container intro center">
+    <hr/>
+    <div className="container intro center">
       <div>
         <h2>Quick Introduction of Me</h2>
       </div>
     </div>
-    
-    <hr/>
-    <div class="card-container">
-      <div class="info card">
-        <img src="/Week1/me.png" style="width:200px; height:200px;"/>
+
+    <div className="card-container">
+      <div className="info card">
+        <img src={Me} width={200} height={200}/>
         <p>
         My name is Ruien Cao and I love C.P. I am a student in Bayside High School and is currently in my junior year. As I said before, I enjoy C.P (Computer Programming) and it's by far my favorite hobby. I also enjoy hanging out with friends outside of school. I live in a family of 4 which consists of my dad, my mom, my little sister, and me.
         </p>
       </div>
     
-      <div class="card info">
-        <div class="outline">
+      <div className="card info">
+        <div className="outline">
         <h1>Projects</h1>
         <hr/>
         </div>

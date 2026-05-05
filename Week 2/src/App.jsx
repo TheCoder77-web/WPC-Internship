@@ -3,46 +3,47 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
-import Me from "./assets/me.png"
+import './navbar/nav.css'
 
-function App() {
+import Projects from "./pages/projects.jsx";
+import Home from "./pages/home.jsx";
+import { BrowserRouter, Routes, Route, Link} from "react-router-dom";
+function App(){
   const [count, setCount] = useState(0)
+  const [showIntro, setShowIntro] = useState(true);
+  const hideIntro = () => setShowIntro(false);
 
   return (
-    <><div>
+    <>
+    <div>
     </div>
       <div id="banner" className="container center">
-      <h1>About Me</h1>
+      <h1>My About Me Website</h1>
     </div>
     <hr/>
+    
+    {showIntro &&(
     <div className="container intro center">
       <div>
-        <h2>Quick Introduction of Me</h2>
+        <h2>This is my About Me page. Click one of these links to check out my website.</h2>
       </div>
     </div>
+    )}
 
-    <div className="card-container">
-      <div className="info card">
-        <img src={Me} width={200} height={200}/>
-        <p>
-        My name is Ruien Cao and I love C.P. I am a student in Bayside High School and is currently in my junior year. As I said before, I enjoy C.P (Computer Programming) and it's by far my favorite hobby. I also enjoy hanging out with friends outside of school. I live in a family of 4 which consists of my dad, my mom, my little sister, and me.
-        </p>
-      </div>
+    <BrowserRouter>
+    <nav>
+      <Link to="/" onClick={hideIntro}>Home</Link>
+      <Link to="/projects">Projects</Link>
+      <Link to="/placeholder">placeholder</Link>
+    </nav>
+
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/projects" element={<Projects />}></Route>
+      </Routes>
+    </BrowserRouter>
     
-      <div className="card info">
-        <div className="outline">
-        <h1>Projects</h1>
-        <hr/>
-        </div>
-        <a href="https://thecoder77-web.github.io/Mexico-Website/" target="_blank">Country Website</a>
-        <br/>
-        <br/>
-        <a href="https://thecoder77-web.github.io/NYCOpenDataProject/" target="_blank">NYC Open Data Website</a>
-        <br/>
-        <br/>
-        <a href="https://docs.google.com/presentation/d/1cCQ_h6PDwDS4InPclREi718PN6dIPeckeS6Md06_5Wo/edit?slide=id.p#slide=id.p" target="_blank">Encryption Project</a>
-      </div>  
-    </div>
+ 
     </>
   )
 }

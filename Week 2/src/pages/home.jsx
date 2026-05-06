@@ -11,20 +11,25 @@ function Home() {
             </p>
           </div>
 
-        <div className="card info">
-            <div className="outline">
-            <h1>Projects</h1>
-            <hr/>
-            </div>
-            <a href="https://thecoder77-web.github.io/Mexico-Website/" target="_blank">Country Website</a>
-            <br/>
-            <br/>
-            <a href="https://thecoder77-web.github.io/NYCOpenDataProject/" target="_blank">NYC Open Data Website</a>
-            <br/>
-            <br/>
-            <a href="https://docs.google.com/presentation/d/1cCQ_h6PDwDS4InPclREi718PN6dIPeckeS6Md06_5Wo/edit?slide=id.p#slide=id.p" target="_blank">Encryption Project</a>
-        </div> 
+        <div className="container intro center">
+          <div>
+            <h2>This is an introduction of me. Check it out before moving on to the other pages.</h2>
+          </div>
         </div>
+
+        <div className="card info">
+          <div className="outline">
+            <h1>Hobbies</h1>
+            <hr/>
+          </div>
+
+            <li>Computer Programming</li>
+            <li>Video Games</li>  
+            <li>Hanging Out With Friends</li>
+            <li>Badminton</li>
+
+        </div> 
+      </div>
      </>
     )
 }

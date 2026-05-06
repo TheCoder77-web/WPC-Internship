@@ -283,6 +283,10 @@ img {
   flex-wrap:wrap;
 }
 
+.outline h1{
+  color:blue;
+}
+
 hr{
   color:white;
   width:1000px;

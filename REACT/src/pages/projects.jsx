@@ -1,3 +1,4 @@
+import './projects.css'
 function Projects() {
 
 return (<div className="card-container">

@@ -1,351 +1,136 @@
-/* home.css / App.css */
-
 :root {
-  /* Default Light Colors */
   --bg-color: #ffffff;
-  --text-color: #1a1a1a; /* Dark text for light background */
+  --text-main: #1a1a1a;    
+  --text-intro: #333333;  
+  --accent-blue: #0000ff; 
   --nav-bg: cornflowerblue;
   --card-bg: #ffffff;
   --card-shadow: rgba(1, 21, 62, 0.2);
-  --hr-color: #eeeeee;
-  --link-color: blue;
+  --hr-color: #cccccc;
 }
 
-/* Dark Mode Colors */
 .dark-theme {
-  --bg-color: #121212;
-  --text-color: #ffffff; /* White text for dark background */
-  --nav-bg: #1f2937;
-  --card-bg: #1e1e1e;
-  --card-shadow: rgba(0, 0, 0, 0.5);
-  --hr-color: #333333;
-  --link-color: #4dabff;
+  --bg-color: #1a1a1a;
+  --text-main: #ffffff;
+  --text-intro: #e0e0e0; 
+  --accent-blue: #8db5ff; 
+  --nav-bg: #2c3e50;
+  --banner-bg: #111827;
+  --card-bg: #2d2d2d;
+  --card-shadow: rgba(0, 0, 0, 0.8);
+  --hr-color: #444444;
 }
 
-/* Apply variables to everything */
-body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  transition: background-color 0.3s, color 0.3s;
+/* The !important here ensures the background ALWAYS follows the theme */
+body, #root, .dark-theme {
+  background-color: var(--bg-color) !important;
+  color: var(--text-main);
   margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-h1, h2, h3, p, li {
-  color: var(--text-color); /* This ensures your text is never 'invisible' */
+/* Forces all standard text elements to stay visible */
+h1, h2, h3, h4, p, li, span, div:not(nav) {
+  color: var(--text-main);
+}
+
+#banner {
+  background-color: #1e3a8a; 
+  padding: 40px 20px;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#banner h1 {
+  color: white !important; 
+  margin: 0;
+  font-size: 3rem;
 }
 
 nav {
   background-color: var(--nav-bg) !important;
-}
-
-.card {
-  background-color: var(--card-bg);
-  box-shadow: 5px 10px 8px var(--card-shadow);
-  border: 1px solid var(--hr-color);
-}
-
-hr {
-  border: 0;
-  border-top: 1px solid var(--hr-color);
-  width: 80%; /* Adjusted for better look */
-}
-
-.counter {
-  font-size: 16px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: var(--accent);
-  background: var(--accent-bg);
-  border: 2px solid transparent;
-  transition: border-color 0.3s;
-  margin-bottom: 24px;
-
-  &:hover {
-    border-color: var(--accent-border);
-  }
-  &:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
-}
-
-.hero {
-  position: relative;
-
-  .base,
-  .framework,
-  .vite {
-    inset-inline: 0;
-    margin: 0 auto;
-  }
-
-  .base {
-    width: 170px;
-    position: relative;
-    z-index: 0;
-  }
-
-  .framework,
-  .vite {
-    position: absolute;
-  }
-
-  .framework {
-    z-index: 1;
-    top: 34px;
-    height: 28px;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
-      scale(1.4);
-  }
-
-  .vite {
-    z-index: 0;
-    top: 107px;
-    height: 26px;
-    width: auto;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
-      scale(0.8);
-  }
-}
-
-#center {
   display: flex;
-  flex-direction: column;
-  gap: 25px;
-  place-content: center;
-  place-items: center;
-  flex-grow: 1;
-
-  @media (max-width: 1024px) {
-    padding: 32px 20px 24px;
-    gap: 18px;
-  }
-}
-
-#next-steps {
-  display: flex;
-  border-top: 1px solid var(--border);
-  text-align: left;
-
-  & > div {
-    flex: 1 1 0;
-    padding: 32px;
-    @media (max-width: 1024px) {
-      padding: 24px 20px;
-    }
-  }
-
-  .icon {
-    margin-bottom: 16px;
-    width: 22px;
-    height: 22px;
-  }
-
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-
-#docs {
-  border-right: 1px solid var(--border);
-
-  @media (max-width: 1024px) {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-  }
-}
-
-#next-steps ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 8px;
-  margin: 32px 0 0;
-
-  .logo {
-    height: 18px;
-  }
-
-  a {
-    color: var(--text-h);
-    font-size: 16px;
-    border-radius: 6px;
-    background: var(--social-bg);
-    display: flex;
-    padding: 6px 12px;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    transition: box-shadow 0.3s;
-
-    &:hover {
-      box-shadow: var(--shadow);
-    }
-    .button-icon {
-      height: 18px;
-      width: 18px;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    margin-top: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    li {
-      flex: 1 1 calc(50% - 8px);
-    }
-
-    a {
-      width: 100%;
-      justify-content: center;
-      box-sizing: border-box;
-    }
-  }
-}
-
-#spacer {
-  height: 88px;
-  border-top: 1px solid var(--border);
-  @media (max-width: 1024px) {
-    height: 48px;
-  }
-}
-
-.ticks {
-  position: relative;
+  justify-content: center;
   width: 100%;
-
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: -4.5px;
-    border: 5px solid transparent;
-  }
-
-  &::before {
-    left: 0;
-    border-left-color: var(--border);
-  }
-  &::after {
-    right: 0;
-    border-right-color: var(--border);
-  }
 }
 
-.container{
-  display:flex;
-  padding:10px;
-}
-.center{
-  justify-content:center;
-  align-items:center;
-}
-
-nav{
-  background-color:cornflowerblue;
-}
-nav a{
-  color:black;
-  padding:10px;
-  flex:1;
-  text-decoration:none;
-  text-align:center;
-}
-nav a:hover{
-  color:white;
+nav a {
+  color: #ffffff !important; 
+  padding: 15px 30px;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer; 
 }
 
-#footer{
-  background-color:cornflowerblue;
-  color:white;
-  /*position:fixed;*/
-  left: 0;
-  right: 0;
-  bottom:0px;
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Makes the button light up */
+  text-decoration: none; /* Keeps it clean */
+  transition: background-color 0.2s ease; /* Makes the light-up smooth */
 }
- 
-.card{
-  width: 250px;
-  min-height: 200px;
-  margin: 10px;
-  text-align: center;
-  border: 1px solid;
-  padding: 10px;
-  box-shadow: 5px 10px 8px #01153E;
+
+.container.intro, .intro-section {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  word-break: break-word;
-  box-sizing: border-box;
-  overflow: hidden;
-  border-radius: 8px;
-  min-width: 400px;
-  
+  text-align: center;
+  padding: 50px 20px;
 }
 
-img {
-  height: 200px;
-  width: 200px !important;
-
-  border-radius: 10px;
+.container.intro h2, 
+.container.intro div,
+.container.intro p {
+  color: var(--text-intro) !important;
+  font-size: 1.2rem;
+  max-width: 500px;
 }
 
-.highlight{
-  font-style:italic;
-  color:blue;
-}
-.heading{
-  font-weight:bold;
-}
-.card a{
-  text-decoration:none;
-  background-color:blue;
-  color:white;
-  border-radius:4px;
-  padding:6px;
-  box-shadow:2px 2px 2px black;
-}
-
-.card-container{
+.card-container {
   display: flex;
   gap: 20px;
   justify-content: center;
+  flex-wrap: wrap;
+  padding-bottom: 50px;
 }
 
-.card a:hover{
-  background-color:cornflowerblue;
-}
-#panel{
-  flex:1;
-}
-.fitted{
-  max-width:200px;
-  min-width:200px;
-}
-.card img{
-  width:90%;
-}
-#output{
-  flex-wrap:wrap;
+.card {
+  background-color: var(--card-bg) !important;
+  border: 1px solid var(--hr-color);
+  box-shadow: 5px 10px 20px var(--card-shadow);
+  border-radius: 12px;
+  padding: 25px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s;
 }
 
-.outline h1{
-  color:blue;
+.card:hover {
+  transform: translateY(-5px);
 }
 
-hr{
-  color:white;
-  width:1000px;
+.outline h1, .txt2, .card h1 {
+  color: var(--accent-blue) !important;
 }
 
-#root{
-  margin: 0 !important;
-  width: 100vw;
+.card img {
+  border-radius: 10px;
+  margin-bottom: 20px;
+  max-width: 100%;
 }
 
+/* 5. CLEANUP */
+hr {
+  border: 0;
+  border-top: 1px solid var(--hr-color);
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* Fix for the top-right toggle button positioning */
+button {
+  cursor: pointer;
+}

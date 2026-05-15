@@ -13,7 +13,7 @@ function App(){
 
   return (
     // This wrapper applies the 'dark-theme' class based on state
-    <div className={isDarkMode ? "dark-theme" : ""}>
+    <div className={isDarkMode ? "dark-theme" : ""} style={{ minHeight: "100vh" }}>
       <div id="banner" className="container center">
         <h1>My About Me Website</h1>
         <button onClick={toggleTheme} style={{marginLeft: '20px'}}>

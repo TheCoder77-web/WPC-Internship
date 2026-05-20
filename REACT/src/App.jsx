@@ -6,13 +6,13 @@ import { BrowserRouter, Routes, Route, Link} from "react-router-dom";
 
 function App(){
   const [showIntro, setShowIntro] = useState(true);
-  const [isDarkMode, setIsDarkMode] = useState(false); // Theme State
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const hideIntro = () => setShowIntro(false);
   const toggleTheme = () => setIsDarkMode(!isDarkMode);
 
   return (
-    // This wrapper applies the 'dark-theme' class based on state
+    /**Appearance Theme */
     <div className={isDarkMode ? "dark-theme" : ""} style={{ minHeight: "100vh" }}>
       <div id="banner" className="container center">
         <h1>My About Me Website</h1>
@@ -36,10 +36,14 @@ function App(){
         </nav>
 
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/projects" element={<Projects />} />
+          <Route path="/" element={<Home />}/>
+          <Route path="/projects" element={<Projects />}/>
         </Routes>
       </BrowserRouter>
+    
+      <footer id="footer">
+        <p>© {new Date().getFullYear()} Ruien Cao. All rights reserved.</p>
+      </footer>
     </div>
   )
 }

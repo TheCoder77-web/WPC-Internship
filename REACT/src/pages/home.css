@@ -289,9 +289,13 @@ img {
   flex-wrap:wrap;
 }
 
-hr{
-  color:white;
-  width:1000px;
+hr {
+  border: none;
+  height: 4px;
+  width: 300px;                
+  background-color: #3b82f6;  
+  border-radius: 2px;       
+  margin: 15px auto 30px;     
 }
 
 #root{

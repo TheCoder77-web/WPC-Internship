@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import Projects from "./pages/projects.jsx";
 import Home from "./pages/home.jsx";
+import Resume from "./pages/resume.jsx";
 import { BrowserRouter, Routes, Route, Link} from "react-router-dom";
 
 function App(){
@@ -30,12 +31,14 @@ function App(){
       <BrowserRouter>
         <nav>
           <Link to="/" onClick={hideIntro}>Home</Link>
-          <Link to="/projects">Projects</Link>
+          <Link to="/projects" onClick={hideIntro}>Projects</Link>
+          <Link to="/resume" onClick={hideIntro}>Resume</Link>
         </nav>
 
         <Routes>
           <Route path="/" element={<Home />}/>
           <Route path="/projects" element={<Projects />}/>
+          <Route path="/resume" element={<Resume />}/>
         </Routes>
       </BrowserRouter>
     

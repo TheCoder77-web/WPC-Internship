@@ -375,10 +375,10 @@ img:not(.slide-img) {
 hr {
   border: none;
   height: 4px;
-  width: 80px;                /* Short and sweet, underlines the title nicely */
-  background-color: #3b82f6;  /* A nice vibrant blue to match your buttons */
-  border-radius: 2px;         /* Smooths out the edges */
-  margin: 15px auto 30px;     /* Centers it and creates nice breathing room */
+  width: 80px;                
+  background-color: #3b82f6;  
+  border-radius: 2px;       
+  margin: 15px auto 30px;     
 }
 
 #root {

@@ -1,3 +1,4 @@
+/* --- Global & Variable Components --- */
 .counter {
   font-size: 16px;
   padding: 5px 10px;
@@ -42,8 +43,7 @@
     z-index: 1;
     top: 34px;
     height: 28px;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
-      scale(1.4);
+    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg) scale(1.4);
   }
 
   .vite {
@@ -51,11 +51,11 @@
     top: 107px;
     height: 26px;
     width: auto;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
-      scale(0.8);
+    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg) scale(0.8);
   }
 }
 
+/* --- Structural Sections --- */
 #center {
   display: flex;
   flex-direction: column;
@@ -183,112 +183,205 @@
   }
 }
 
-.container{
-  display:flex;
-  padding:10px;
-}
-.center{
-  justify-content:center;
-  align-items:center;
+.container {
+  display: flex;
+  padding: 10px;
 }
 
-nav{
-  background-color:cornflowerblue;
-}
-nav a{
-  color:black;
-  padding:10px;
-  flex:1;
-  text-decoration:none;
-  text-align:center;
-}
-nav a:hover{
-  color:white;
+.center {
+  justify-content: center;
+  align-items: center;
 }
 
-#footer{
-  background-color:cornflowerblue;
-  color:white;
-  /*position:fixed;*/
+/* --- Navigation & Footer --- */
+nav {
+  background-color: cornflowerblue;
+}
+
+nav a {
+  color: black;
+  padding: 10px;
+  flex: 1;
+  text-decoration: none;
+  text-align: center;
+}
+
+nav a:hover {
+  color: white;
+}
+
+#footer {
+  background-color: cornflowerblue;
+  color: white;
   left: 0;
   right: 0;
-  bottom:0px;
+  bottom: 0px;
 }
- 
-.card{
-  width: 250px;
-  min-height: 200px;
+
+/* --- Project Portfolio Display --- */
+.projects-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 30px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Unified Portfolio Project Card definition */
+.card {
+  width: 100%;
+  max-width: 400px;      
+  min-height: 380px;
   margin: 10px;
   text-align: center;
-  border: 1px solid;
-  padding: 10px;
+  border: 1px solid #333;
+  padding: 24px;
   box-shadow: 5px 10px 8px #01153E;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  word-break: break-word;
   box-sizing: border-box;
   overflow: hidden;
-  border-radius: 8px;
-  min-width: 400px;
-  
+  border-radius: 12px;
+  background-color: #222; 
 }
 
-img {
+/* Safe scoping for standard site images so they don't break our custom slideshow elements */
+img:not(.slide-img) {
   height: 200px;
-  width: 200px !important;
-
+  width: 200px;
   border-radius: 10px;
 }
 
-.highlight{
-  font-style:italic;
-  color:blue;
-}
-.heading{
-  font-weight:bold;
-}
-.card a{
-  text-decoration:none;
-  background-color:blue;
-  color:white;
-  border-radius:4px;
-  padding:6px;
-  box-shadow:2px 2px 2px black;
+.highlight {
+  font-style: italic;
+  color: blue;
 }
 
-.card-container{
+.heading {
+  font-weight: bold;
+}
+
+/* Action Links inside Portfolio Cards */
+.card a {
+  text-decoration: none;
+  background-color: blue;
+  color: white;
+  border-radius: 4px;
+  padding: 6px 16px;
+  box-shadow: 2px 2px 2px black;
+  transition: background-color 0.2s;
+}
+
+.card a:hover {
+  background-color: cornflowerblue;
+}
+
+#panel {
+  flex: 1;
+}
+
+.fitted {
+  max-width: 200px;
+  min-width: 200px;
+}
+
+/* --- Embedded Slideshow Framework Rules --- */
+.slideshow-container {
+  position: relative;
+  width: 100%;           
+  max-width: 360px;      
+  height: 220px;         
+  margin-bottom: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #1a1a1a;
+}
+
+.card .slide-img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain; 
+  display: block;
+  margin: 0 auto;
+}
+
+.slide-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  border: none;
+  padding: 8px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 3px;
+  transition: background-color 0.2s;
+  z-index: 10;
+}
+
+.slide-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+  left: 5px;
+}
+
+.next {
+  right: 5px;
+}
+
+.slide-dots {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
-  gap: 20px;
-  justify-content: center;
+  gap: 5px;
+  z-index: 10;
 }
 
-.card a:hover{
-  background-color:cornflowerblue;
-}
-#panel{
-  flex:1;
-}
-.fitted{
-  max-width:200px;
-  min-width:200px;
-}
-.card img{
-  width:90%;
-}
-#output{
-  flex-wrap:wrap;
+.dot {
+  width: 8px;
+  height: 8px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.2s;
 }
 
-hr{
-  color:white;
-  width:1000px;
+.dot.active, .dot:hover {
+  background-color: rgba(255, 255, 255, 1);
 }
 
-#root{
+/* --- Utility Alignments --- */
+#output {
+  flex-wrap: wrap;
+}
+
+hr {
+  border: none;
+  height: 4px;
+  width: 80px;                /* Short and sweet, underlines the title nicely */
+  background-color: #3b82f6;  /* A nice vibrant blue to match your buttons */
+  border-radius: 2px;         /* Smooths out the edges */
+  margin: 15px auto 30px;     /* Centers it and creates nice breathing room */
+}
+
+#root {
   margin: 0 !important;
   width: 100vw;
 }

@@ -237,10 +237,16 @@ nav a:hover{
   
 }
 
+.center-featured-img {
+    width:450px !important;
+}
+
+.card img {
+    width:200px !important;
+}
+
 img {
   height: 200px;
-  width: 200px !important;
-
   border-radius: 10px;
 }
 

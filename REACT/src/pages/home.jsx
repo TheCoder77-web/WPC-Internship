@@ -1,5 +1,5 @@
+import './home.css'
 import Me from "../assets/me.png"
-import Bayside from "../assets/bayside.jpg"
 
 function Home() {
     return (
@@ -10,10 +10,6 @@ function Home() {
               <p className="main-intro-text">
                 My name is Ruien Cao and I love C.P (Computer Programming). I am a student in Bayside High School and is currently in my junior year. As I said before, I enjoy C.P and it's by far my favorite hobby. I also enjoy hanging out with friends outside of school. I live in a family of 4 which consists of my dad, my mom, my little sister, and me.
               </p>
-          </div>
-
-          <div className="center-image-container">
-            <img src={Bayside} alt="Featured Showcase" className="center-featured-img"/>
           </div>
 
           <div className="card info">

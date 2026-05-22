@@ -20,9 +20,7 @@ function App(){
           {isDarkMode ? "☀️ Light Mode" : "🌙 Dark Mode"}
         </button>
       </div>
-      
-      <hr/>
-      
+
       {showIntro && (
         <div className="container intro center">
           <h2>This is my About Me page. Click a link below.</h2>

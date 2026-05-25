@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route, Link} from "react-router-dom";
 function App(){
   const [showIntro, setShowIntro] = useState(true);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [searchQuery, setSearchQuery] = useState(""); 
 
   const hideIntro = () => setShowIntro(false);
   const toggleTheme = () => setIsDarkMode(!isDarkMode);
@@ -29,16 +30,31 @@ function App(){
       )}
 
       <BrowserRouter>
-        <nav>
-          <Link to="/" onClick={hideIntro}>Home</Link>
-          <Link to="/projects" onClick={hideIntro}>Projects</Link>
-          <Link to="/resume" onClick={hideIntro}>Resume</Link>
-        </nav>
+        <div className="nav-container">
+          <nav>
+            <Link to="/" onClick={hideIntro}>Home</Link>
+            <Link to="/projects" onClick={hideIntro}>Projects</Link>
+            <Link to="/resume" onClick={hideIntro}>Resume</Link>
+          </nav>
 
+          <div className="search-box">
+            <input 
+              type="text"
+              className="search-input"
+              placeholder="Search..." 
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)} 
+            />
+            {searchQuery && (
+              <button className="clear-btn" onClick={() => setSearchQuery("")}>✕</button>
+            )}
+          </div>
+        </div>
+      
         <Routes>
-          <Route path="/" element={<Home />}/>
-          <Route path="/projects" element={<Projects />}/>
-          <Route path="/resume" element={<Resume />}/>
+          <Route path="/" element={<Home searchQuery={searchQuery} />}/>
+          <Route path="/projects" element={<Projects searchQuery={searchQuery} />}/>
+          <Route path="/resume" element={<Resume searchQuery={searchQuery} />}/>
         </Routes>
       </BrowserRouter>
     

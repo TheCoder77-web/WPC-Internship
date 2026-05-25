@@ -72,6 +72,74 @@ nav a:hover {
   transition: background-color 0.2s ease; 
 }
 
+/* Search Bar & Updated Nav Layout */
+.nav-container {
+  background-color: var(--nav-bg) !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+}
+
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  padding: 8px 35px 8px 15px;
+  border-radius: 20px;
+  border: 1px solid var(--hr-color);
+  background-color: var(--card-bg);
+  color: var(--text-main);
+  outline: none;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  width: 180px;
+}
+
+.search-input:focus {
+  width: 240px;
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 5px var(--accent-blue);
+}
+
+.clear-btn {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  color: var(--text-intro);
+  font-size: 0.8rem;
+  cursor: pointer;
+  padding: 0;
+}
+
+@media (max-width: 600px) {
+  .nav-container {
+    flex-direction: column;
+    padding: 10px;
+  }
+  .search-box {
+    margin: 10px 0;
+    width: 90%;
+  }
+  .search-input {
+    width: 100%;
+  }
+  .search-input:focus {
+    width: 100%;
+  }
+}
+
 .center-image-container {
   width: 40vw; 
   max-width: 550px;          
